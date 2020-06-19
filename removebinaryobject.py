@@ -20,8 +20,13 @@ def main():
     image = cv2.imread("image/coins.png")
 
     # convert image to binary
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    ret, thresh1 = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
 
-    cv2.imshow("display", image)
+    result = bwareaopenCV2(thresh1, 1000)
+
+    cv2.imshow("original", thresh1)
+    cv2.imshow("result", result)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
