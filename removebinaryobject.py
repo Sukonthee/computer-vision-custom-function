@@ -3,6 +3,12 @@ import numpy as np
 
 
 def bwareaopenCV2(image, minSize):
+    '''
+        image: bianry image
+        minSize: minsize object don't want to remove
+
+        return existing object image
+    '''
     nbComponents, output, stats, centroids = cv2.connectedComponentsWithStats(
         image, connectivity=8)
     sizes = stats[1:, -1]
